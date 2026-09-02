@@ -1,0 +1,251 @@
+{
+  "info" : {
+    "name" : "library-management-api Postman Collection",
+    "description" : "A comprehensive API for managing library book inventory, member registrations, and book borrowing/return transactions. Includes overdue fine calculations, member tier management, and real-time book availability.\n\n\nOpenAPI version: 1.0.0",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth" : {
+    "type" : "bearer",
+    "bearer" : [ {
+      "key" : "token",
+      "value" : "{{accessToken}}",
+      "type" : "string"
+    } ]
+  },
+  "variable" : [ {
+    "key" : "baseUrl",
+    "value" : "https://api.library.example.com/v1",
+    "type" : "string",
+    "description" : "Override with the base URL of the deployed Apigee proxy."
+  }, {
+    "key" : "accessToken",
+    "value" : "",
+    "type" : "string"
+  }, {
+    "key" : "author",
+    "value" : "",
+    "type" : "string",
+    "description" : "Filter by author's full or partial name"
+  }, {
+    "key" : "genre",
+    "value" : "",
+    "type" : "string",
+    "description" : "Filter by book genre"
+  }, {
+    "key" : "available",
+    "value" : "",
+    "type" : "string",
+    "description" : "Filter by current availability (true = only available copies)"
+  }, {
+    "key" : "limit",
+    "value" : "",
+    "type" : "string",
+    "description" : "Max number of books to return"
+  }, {
+    "key" : "bookId",
+    "value" : "",
+    "type" : "string",
+    "description" : "Unique ID of the book"
+  }, {
+    "key" : "memberId",
+    "value" : "",
+    "type" : "string",
+    "description" : "Unique ID of the member"
+  }, {
+    "key" : "activeOnly",
+    "value" : "",
+    "type" : "string",
+    "description" : "If true, returns only currently active (not returned) loans"
+  }, {
+    "key" : "loanId",
+    "value" : "",
+    "type" : "string",
+    "description" : "Unique ID of the loan transaction"
+  } ],
+  "item" : [ {
+    "name" : "List all books with filters",
+    "request" : {
+      "method" : "GET",
+      "description" : "List all books with filters\n\nResponses:\n- 200: List of books matching the criteria",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/books?author={{author}}&genre={{genre}}&available={{available}}&limit={{limit}}",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "books" ],
+        "query" : [ {
+          "key" : "author",
+          "value" : "{{author}}",
+          "disabled" : true,
+          "description" : "Filter by author's full or partial name"
+        }, {
+          "key" : "genre",
+          "value" : "{{genre}}",
+          "disabled" : true,
+          "description" : "Filter by book genre"
+        }, {
+          "key" : "available",
+          "value" : "{{available}}",
+          "disabled" : true,
+          "description" : "Filter by current availability (true = only available copies)"
+        }, {
+          "key" : "limit",
+          "value" : "{{limit}}",
+          "disabled" : true,
+          "description" : "Max number of books to return"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Add a new book to the catalog",
+    "request" : {
+      "method" : "POST",
+      "description" : "Add a new book to the catalog\n\nResponses:\n- 201: Book successfully added",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/books",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "books" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Get detailed book information",
+    "request" : {
+      "method" : "GET",
+      "description" : "Get detailed book information\n\nResponses:\n- 200: Book details found\n- 404: Book not found",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/books/:bookId",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "books", ":bookId" ],
+        "variable" : [ {
+          "key" : "bookId",
+          "value" : "{{bookId}}",
+          "description" : "Unique ID of the book"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Register a new library member",
+    "request" : {
+      "method" : "POST",
+      "description" : "Register a new library member\n\nResponses:\n- 201: Member registered successfully",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/members",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "members" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Get borrowing history of a member",
+    "request" : {
+      "method" : "GET",
+      "description" : "Get borrowing history of a member\n\nResponses:\n- 200: Loan history retrieved",
+      "header" : [ ],
+      "url" : {
+        "raw" : "{{baseUrl}}/members/:memberId/loans?activeOnly={{activeOnly}}",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "members", ":memberId", "loans" ],
+        "query" : [ {
+          "key" : "activeOnly",
+          "value" : "{{activeOnly}}",
+          "disabled" : true,
+          "description" : "If true, returns only currently active (not returned) loans"
+        } ],
+        "variable" : [ {
+          "key" : "memberId",
+          "value" : "{{memberId}}",
+          "description" : "Unique ID of the member"
+        } ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Borrow a book",
+    "request" : {
+      "method" : "POST",
+      "description" : "Borrow a book\n\nResponses:\n- 201: Book successfully borrowed\n- 400: Book unavailable or member has reached borrowing limit",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/loans",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "loans" ]
+      }
+    },
+    "response" : [ ]
+  }, {
+    "name" : "Return a borrowed book",
+    "request" : {
+      "method" : "POST",
+      "description" : "Return a borrowed book\n\nResponses:\n- 200: Book returned successfully",
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json",
+        "type" : "text"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{}",
+        "options" : {
+          "raw" : {
+            "language" : "json"
+          }
+        }
+      },
+      "url" : {
+        "raw" : "{{baseUrl}}/loans/:loanId/return",
+        "host" : [ "{{baseUrl}}" ],
+        "path" : [ "loans", ":loanId", "return" ],
+        "variable" : [ {
+          "key" : "loanId",
+          "value" : "{{loanId}}",
+          "description" : "Unique ID of the loan transaction"
+        } ]
+      }
+    },
+    "response" : [ ]
+  } ]
+}

@@ -1,0 +1,146 @@
+{
+  "microserviceId" : "6a978b75ceef854e3acf7f5d",
+  "mocks" : [ {
+    "id" : "c5e07171-f202-4b38-8ee1-180fd31b2559",
+    "microserviceId" : "6a978b75ceef854e3acf7f5d",
+    "specMetadataId" : "6a978b8940e8243f64aac09f",
+    "apiSpecName" : "Library Management API",
+    "name" : "mock-library-management-api",
+    "mockServiceName" : "mock-library-management-api",
+    "mockServerUrl" : "https://forgesphere.probestack.io/mock-api/v1/api/mocks/mock-2a9f1cd3",
+    "responseLatencyMs" : 0,
+    "mockUrl" : "mock-2a9f1cd3",
+    "isPrivate" : true,
+    "delayMs" : 0,
+    "requestCount" : 0,
+    "createdAt" : "2026-09-02T02:36:01.691Z",
+    "updatedAt" : "2026-09-02T02:36:01.696Z",
+    "endpoints" : [ {
+      "id" : "6848ab78-a065-4b85-bdef-792aa0a92aeb",
+      "mockId" : "c5e07171-f202-4b38-8ee1-180fd31b2559",
+      "path" : "/books",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "[{\"id\":\"string\",\"title\":\"string\",\"author\":\"string\",\"isbn\":\"string\",\"genre\":\"FICTION\",\"publishedYear\":0,\"totalCopies\":0,\"availableCopies\":0}]",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T02:36:01.718Z",
+      "updatedAt" : "2026-09-02T02:36:01.718Z"
+    }, {
+      "id" : "88273c73-79a5-46c0-92ae-fd39b40fc093",
+      "mockId" : "c5e07171-f202-4b38-8ee1-180fd31b2559",
+      "path" : "/books",
+      "method" : "POST",
+      "responseStatus" : 201,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"string\",\"title\":\"string\",\"author\":\"string\",\"isbn\":\"string\",\"genre\":\"FICTION\",\"publishedYear\":0,\"totalCopies\":0,\"availableCopies\":0}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"title\":\"string\",\"author\":\"string\",\"isbn\":\"string\",\"genre\":\"FICTION\",\"publishedYear\":0,\"totalCopies\":1}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T02:36:01.727Z",
+      "updatedAt" : "2026-09-02T02:36:01.727Z"
+    }, {
+      "id" : "1ecaab95-7d69-4259-8c0f-79b7a3e22218",
+      "mockId" : "c5e07171-f202-4b38-8ee1-180fd31b2559",
+      "path" : "/books/{bookId}",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"string\",\"title\":\"string\",\"author\":\"string\",\"isbn\":\"string\",\"genre\":\"FICTION\",\"publishedYear\":0,\"totalCopies\":0,\"availableCopies\":0}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T02:36:01.736Z",
+      "updatedAt" : "2026-09-02T02:36:01.736Z"
+    }, {
+      "id" : "8787dfb7-dd25-4066-a9bf-b3177886970c",
+      "mockId" : "c5e07171-f202-4b38-8ee1-180fd31b2559",
+      "path" : "/loans",
+      "method" : "POST",
+      "responseStatus" : 201,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"string\",\"memberId\":\"string\",\"bookId\":\"string\",\"borrowedAt\":\"2024-01-01T00:00:00Z\",\"dueDate\":\"2024-01-01\",\"returnedAt\":\"2024-01-01T00:00:00Z\",\"status\":\"ACTIVE\",\"fineCents\":0}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"memberId\":\"string\",\"bookId\":\"string\",\"dueDate\":\"2024-01-01\"}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T02:36:01.765Z",
+      "updatedAt" : "2026-09-02T02:36:01.766Z"
+    }, {
+      "id" : "6bde3b2d-4f9d-4b00-84be-588b2f10f50a",
+      "mockId" : "c5e07171-f202-4b38-8ee1-180fd31b2559",
+      "path" : "/loans/{loanId}/return",
+      "method" : "POST",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"loanId\":\"string\",\"bookId\":\"string\",\"memberId\":\"string\",\"returnedAt\":\"2024-01-01T00:00:00Z\",\"fineCents\":0,\"bookCondition\":\"GOOD\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"bookCondition\":\"GOOD\"}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T02:36:01.774Z",
+      "updatedAt" : "2026-09-02T02:36:01.775Z"
+    }, {
+      "id" : "c3669fce-08b3-47b4-8785-30554d8e6d63",
+      "mockId" : "c5e07171-f202-4b38-8ee1-180fd31b2559",
+      "path" : "/members",
+      "method" : "POST",
+      "responseStatus" : 201,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "{\"id\":\"string\",\"fullName\":\"string\",\"email\":\"string\",\"phone\":\"string\",\"membershipTier\":\"STANDARD\",\"registeredAt\":\"2024-01-01T00:00:00Z\"}",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : "{\"fullName\":\"string\",\"email\":\"user@example.com\",\"phone\":\"string\",\"membershipTier\":\"STANDARD\"}",
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T02:36:01.744Z",
+      "updatedAt" : "2026-09-02T02:36:01.744Z"
+    }, {
+      "id" : "97979367-a4bc-4677-8073-9243dd37ad89",
+      "mockId" : "c5e07171-f202-4b38-8ee1-180fd31b2559",
+      "path" : "/members/{memberId}/loans",
+      "method" : "GET",
+      "responseStatus" : 200,
+      "responseHeaders" : {
+        "Content-Type" : "application/json"
+      },
+      "responseBody" : "[{\"id\":\"string\",\"memberId\":\"string\",\"bookId\":\"string\",\"borrowedAt\":\"2024-01-01T00:00:00Z\",\"dueDate\":\"2024-01-01\",\"returnedAt\":\"2024-01-01T00:00:00Z\",\"status\":\"ACTIVE\",\"fineCents\":0}]",
+      "delayMs" : 0,
+      "isActive" : true,
+      "requestBodySample" : null,
+      "validationMode" : "NONE",
+      "validationSchema" : null,
+      "validateMethod" : true,
+      "createdAt" : "2026-09-02T02:36:01.754Z",
+      "updatedAt" : "2026-09-02T02:36:01.754Z"
+    } ]
+  } ]
+}
